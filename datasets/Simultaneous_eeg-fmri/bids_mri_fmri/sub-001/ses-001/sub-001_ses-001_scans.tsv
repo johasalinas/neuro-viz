@@ -1,0 +1,4 @@
+filename	acq_time	operator	randstr
+func/sub-001_ses-001_task-rest_bold.nii.gz	2017-10-26T18:42:06	n/a	9b4287c0
+func/sub-001_ses-001_task-eoec_bold.nii.gz	2017-10-26T18:59:50	n/a	7f7747b3
+anat/sub-001_ses-001_acq-highres_T1w.nii.gz	2017-10-26T19:15:35	n/a	952cc4cd

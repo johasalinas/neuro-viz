@@ -1,0 +1,12 @@
+config annex.largefiles=nothing
+metadata/aggregate* annex.largefiles=nothing
+metadata/objects/** annex.largefiles=(anything)
+* annex.backend=MD5E
+**/.git* annex.largefiles=nothing
+*.tsv annex.largefiles=nothing
+*.json annex.largefiles=nothing
+*.bvec annex.largefiles=nothing
+*.bval annex.largefiles=nothing
+README annex.largefiles=nothing
+CHANGES annex.largefiles=nothing
+.bidsignore annex.largefiles=nothing

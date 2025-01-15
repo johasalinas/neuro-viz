@@ -1,0 +1,26 @@
+{
+	"Abstract": "This dataset consist of a series of EEG recordings from the same individuals. EEG data was collected outside the MR-environment, inside the MR-scanner without acquiring images and during simultaneous fMRI acquisition. The oustide EEG data consists of 2 minutes of eyes-closed resting EEG, followed by 2 minutes of eyes-open resting EEG, and 2 minutes alternating between eyes-closed and eyes-open (20-second blocks). The inside EEG includes 2 minutes of eyes-closed and 2 minutes of eyes-open resting state data. The EEG-fMRI session consists of 10 minutes of eyes-closed resting EEG, 2 minutes of eyes-open resting EEG, and 4 minutes of alternation between eyes-closed and eyes-open conidions (20-second blocks)",
+	"KeyWords": [
+		"Electroencephalography",
+		"Magnetic Resonance Imaging",
+		"Simultaneous EEG-fMRI",
+		"Data quality"
+	],
+	"Acknowledgements": "We thank the personnel at the Unidad de Resonancia Magnética, UNAM, the Laboratorio Nacional de Imagenología por Resonancia Magnética and the Instituto de Neurobiología, UNAM for supporting this study",
+	"Authors": [
+		"Gallego Rudolf, J.E.",
+		"Corsi Cabrera, M.",
+		"Concha, L.",
+		"Ricardo-Garcell, J.",
+		"Pasaye-Alcaraz, E. H."
+	],
+	"BIDSVersion": "1.2",
+	"DatasetDOI": "DOI:10.17632/crhybxpdy6.1",
+	"License": "This data repository is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: http://opendatacommons.org/licenses/pddl/1.0/",
+	"Name": "EEG-MRI dataset (EEG part)",
+	"ReferencesAndLinks": [
+    "Gallego-Rudolf et al., (2020). Resting-state and eyes open-closed simultaneous (and independent) EEG-fMRI: A multimodal neuroimaging dataset. Data paper, submmitted to Data in Brief.",
+    "Gallego-Rudolf et al., (2020). Ballistocardiographic artifact correction and its impact on EEG signal preservation and EEG-informed fMRI analysis. Main research paper, submmitted to Neuroimage."
+  ],
+	"Sponsorship": "The Laboratorio Nacional de Imagenologia por Resonancia Magnetica has received funding from CONACyT and by the Instituto de Neurobiologia UNAM, JGR received a scholarship from CONACyT (716272/634009), LC was partially funded by UNAM-DGAPA (IG200117) and CONACYT (1782)"
+}

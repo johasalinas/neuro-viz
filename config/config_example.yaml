@@ -1,0 +1,53 @@
+# Example configuration file for Neuro-Viz
+# This file contains the main parameters used for preprocessing, visualization, and GUI.
+
+# General Project Settings
+project_name: "NeuroViz Project"
+output_directory: "./results/"
+log_level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR
+
+# Data Settings
+data_path: "./datasets/raw/"  # Path to raw EEG/MRI data
+derivatives_path: "./datasets/derivatives/"  # Path to preprocessed data
+subjects:
+  - sub-01
+  - sub-02
+  - sub-04
+  - sub-09
+use_preprocessed: true  # If true, use derivatives data instead of raw
+
+# EEG Preprocessing Parameters
+eeg:
+  sampling_rate: 1000  # Hz
+  highpass_filter: 0.1  # Hz
+  lowpass_filter: 40  # Hz
+  notch_filter: 50  # Hz
+  channels: ["Fz", "Cz", "Pz", "Oz"]  # Channels to keep
+  bad_channels: ["C2", "C6"]  # Channels to exclude from analysis
+  reference: "average"  # Reference type: average, mastoid, etc.
+
+# MRI/fMRI Parameters
+mri:
+  apply_skull_strip: true
+  alignment: "rigid"  # Options: rigid, affine, non-linear
+
+# Visualization Settings
+visualization:
+  brain_model: "./datasets/derivatives/freesurfer/sub-01/surf/lh.pial"
+  color_map: "coolwarm"  # Options: viridis, plasma, coolwarm, etc.
+  show_electrodes: true
+  electrode_size: 10
+
+# GUI Parameters
+gui:
+  window_size: [1200, 800]  # Width, Height
+  enable_3d_rotation: true
+  enable_slicing: true
+  slicing_planes: 3  # Number of slicing planes in the visualization
+
+# Export Settings
+export:
+  save_figures: true
+  figure_format: "png"  # Options: png, svg, pdf
+  save_data: true
+  export_format: "csv"  # Options: csv, json

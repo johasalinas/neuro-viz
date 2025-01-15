@@ -1,0 +1,107 @@
+<HTML><HEAD>
+<!--refreshstart-->
+
+<!--refreshstop-->
+<link REL=stylesheet TYPE=text/css href=.files/fsl.css>
+<TITLE>FSL</TITLE></HEAD><BODY><OBJECT data=report.html></OBJECT>
+<h2>Progress Report / Log</h2>
+Started at Mon Jan 13 22:54:27 CET 2025<p>
+Feat main script<br><pre>
+
+/bin/cp /var/folders/ts/mwdvcrpx1h92ms7xth3_4h4m0000gn/T/feat_a7ohchkn.fsf design.fsf
+
+mkdir .files;cp /usr/local/fsl/doc/fsl.css .files;cp -r /usr/local/fsl/doc/images .files/images
+
+/usr/local/fsl/bin/fsl_sub -T 10 -l logs -N feat0_init   /usr/local/fsl/bin/feat /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat/design.fsf -D /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat -I 1 -init
+45612
+
+/usr/local/fsl/bin/fsl_sub -T 60 -l logs -N feat2_pre -j 45612  /usr/local/fsl/bin/feat /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat/design.fsf -D /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat -I 1 -prestats
+45670
+
+/usr/local/fsl/bin/fsl_sub -T 1 -l logs -N feat5_stop -j 45670  /usr/local/fsl/bin/feat /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat/design.fsf -D /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat -stop
+</pre><hr>Initialisation<br><pre>
+
+/usr/local/fsl/bin/fslmaths /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/sub-001_ses-001_task-rest_bold prefiltered_func_data -odt float
+Total original volumes = 300
+
+/usr/local/fsl/bin/fslroi prefiltered_func_data example_func 150 1
+</pre><hr>Preprocessing:Stage 1<br><pre>
+
+/usr/local/fsl/bin/mainfeatreg -F 6.00 -d /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat -l /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat/logs/feat2_pre -R /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat/report_unwarp.html -r /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat/report_reg.html  -i /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat/example_func.nii.gz  -s /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/anat/preprocessed_anat/segment_t1_fsl/preprocessed_t1_brain -y 12 -z 90 -c T1_2_MNI152_2mm 
+Option -F ( FEAT version parameter ) selected with  argument "6.00"
+Option -d ( output directory ) selected with  argument "/Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat"
+Option -l ( logfile )input with argument "/Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat/logs/feat2_pre"
+Option -R ( html unwarping report ) selected with  argument "/Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat/report_unwarp.html"
+Option -r ( html registration report ) selected with  argument "/Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat/report_reg.html"
+Option -i ( main input ) input with argument "/Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat/example_func.nii.gz"
+Option -s ( standard image ) selected with  argument "/Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/anat/preprocessed_anat/segment_t1_fsl/preprocessed_t1_brain"
+Option -y ( standard dof ) selected with  argument "12"
+Option -z ( standard search ) selected with  argument "90"
+Option -c ( fnirt config ) selected with  argument "T1_2_MNI152_2mm"
+</pre><hr>Registration<br><pre>
+
+/bin/mkdir -p /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/func/preprocessed_fmri.feat/reg
+
+
+/usr/local/fsl/bin/fslmaths /Users/jsnunki/Code/neuro-viz/datasets/Simultaneous_eeg-fmri/bids_mri_fmri/sub-001/ses-001/anat/preprocessed_anat/segment_t1_fsl/preprocessed_t1_brain standard
+
+did not find file: example_func2standard.mat. Generating transform.
+
+/usr/local/fsl/bin/flirt -in example_func -ref standard -out example_func2standard -omat example_func2standard.mat -cost corratio -dof 12 -searchrx -90 90 -searchry -90 90 -searchrz -90 90 -interp trilinear 
+
+
+/usr/local/fsl/bin/convert_xfm -inverse -omat standard2example_func.mat example_func2standard.mat
+
+
+/usr/local/fsl/bin/slicer example_func2standard standard -s 2 -x 0.35 sla.png -x 0.45 slb.png -x 0.55 slc.png -x 0.65 sld.png -y 0.35 sle.png -y 0.45 slf.png -y 0.55 slg.png -y 0.65 slh.png -z 0.35 sli.png -z 0.45 slj.png -z 0.55 slk.png -z 0.65 sll.png ; /usr/local/fsl/bin/pngappend sla.png + slb.png + slc.png + sld.png + sle.png + slf.png + slg.png + slh.png + sli.png + slj.png + slk.png + sll.png example_func2standard1.png ; /usr/local/fsl/bin/slicer standard example_func2standard -s 2 -x 0.35 sla.png -x 0.45 slb.png -x 0.55 slc.png -x 0.65 sld.png -y 0.35 sle.png -y 0.45 slf.png -y 0.55 slg.png -y 0.65 slh.png -z 0.35 sli.png -z 0.45 slj.png -z 0.55 slk.png -z 0.65 sll.png ; /usr/local/fsl/bin/pngappend sla.png + slb.png + slc.png + sld.png + sle.png + slf.png + slg.png + slh.png + sli.png + slj.png + slk.png + sll.png example_func2standard2.png ; /usr/local/fsl/bin/pngappend example_func2standard1.png - example_func2standard2.png example_func2standard.png; /bin/rm -f sl?.png example_func2standard2.png
+
+</pre><hr>Preprocessing:Stage 2<br><pre>
+
+/usr/local/fsl/bin/mcflirt -in prefiltered_func_data -out prefiltered_func_data_mcf -mats -plots -reffile example_func -rmsrel -rmsabs -spline_final
+
+/bin/mkdir -p mc ; /bin/mv -f prefiltered_func_data_mcf.mat prefiltered_func_data_mcf.par prefiltered_func_data_mcf_abs.rms prefiltered_func_data_mcf_abs_mean.rms prefiltered_func_data_mcf_rel.rms prefiltered_func_data_mcf_rel_mean.rms mc
+
+/usr/local/fsl/bin/fsl_tsplot -i prefiltered_func_data_mcf.par -t 'MCFLIRT estimated rotations (radians)' -u 1 --start=1 --finish=3 -a x,y,z -w 640 -h 144 -o rot.png 
+
+/usr/local/fsl/bin/fsl_tsplot -i prefiltered_func_data_mcf.par -t 'MCFLIRT estimated translations (mm)' -u 1 --start=4 --finish=6 -a x,y,z -w 640 -h 144 -o trans.png 
+
+/usr/local/fsl/bin/fsl_tsplot -i prefiltered_func_data_mcf_abs.rms,prefiltered_func_data_mcf_rel.rms -t 'MCFLIRT estimated mean displacement (mm)' -u 1 -w 640 -h 144 -a absolute,relative -o disp.png 
+
+/usr/local/fsl/bin/fslmaths prefiltered_func_data_mcf -Tmean mean_func
+
+/usr/local/fsl/bin/bet2 mean_func mask -f 0.3 -n -m; /usr/local/fsl/bin/immv mask_mask mask
+
+/usr/local/fsl/bin/fslmaths prefiltered_func_data_mcf -mas mask prefiltered_func_data_bet
+
+/usr/local/fsl/bin/fslstats prefiltered_func_data_bet -p 2 -p 98
+0.000000 2226.418457 
+
+/usr/local/fsl/bin/fslmaths prefiltered_func_data_bet -thr 222.6418457 -Tmin -bin mask -odt char
+
+/usr/local/fsl/bin/fslstats prefiltered_func_data_mcf -k mask -p 50
+1611.993530 
+
+/usr/local/fsl/bin/fslmaths mask -dilF mask
+
+/usr/local/fsl/bin/fslmaths prefiltered_func_data_mcf -mas mask prefiltered_func_data_thresh
+
+/usr/local/fsl/bin/fslmaths prefiltered_func_data_thresh -Tmean mean_func
+
+/usr/local/fsl/bin/susan prefiltered_func_data_thresh 1208.9951475 2.5477707006369426 3 1 1 mean_func 1208.9951475 prefiltered_func_data_smooth
+
+/usr/local/fsl/bin/fslmaths prefiltered_func_data_smooth -mas mask prefiltered_func_data_smooth
+
+/usr/local/fsl/bin/fslmaths prefiltered_func_data_smooth -inm 10000 prefiltered_func_data_intnorm
+
+/usr/local/fsl/bin/fslmaths prefiltered_func_data_intnorm -Tmean tempMean
+
+/usr/local/fsl/bin/fslmaths prefiltered_func_data_intnorm -bptf 25.0 -1 -add tempMean prefiltered_func_data_tempfilt
+
+/usr/local/fsl/bin/imrm tempMean
+
+/usr/local/fsl/bin/fslmaths prefiltered_func_data_tempfilt filtered_func_data
+
+/usr/local/fsl/bin/fslmaths filtered_func_data -Tmean mean_func
+
+/bin/rm -rf prefiltered_func_data*
+</pre><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></BODY></HTML>
